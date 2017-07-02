@@ -25,6 +25,9 @@
                     }
                 });
             });
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            });
         });
     </script>
     <style>
@@ -78,10 +81,10 @@
                 <br>
                 <textarea id="content" cols="40" rows="5" placeholder="Message.." class="form-control transparent-input"></textarea>
                 <br>
-                <button id="send_email" class="btn btn-outline-secondary  sendhover">Send Email</button>
+                <button id="send_email" class="btn btn-outline-secondary sendhover">Send Email</button>
             </div>
             <div id="message"></div>
-            <div class="mt-5">sending via <strong>aakashrastogiPro@gmail.com</strong></div>
+            <div class="mt-5">sending via <a class="text-white" data-toggle="tooltip" data-html="true" data-placement="bottom" title="Change it?" href="change.html"><strong>aakashrastogiPro@gmail.com</strong></a> </div>
         </div>
         <hr style="border-bottom:1px solid white;">
         <div id="footer" class="pb-3">
