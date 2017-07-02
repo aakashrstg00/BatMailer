@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BatMailer</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script>
+        $(document).ready(function () {
+            var from, to, subject, text, sender_mail, sender_pass, sender_name;
+            $("#send_email").click(function () {
+                to = $("#to").val();
+                subject = $("#subject").val();
+                text = $("#content").val();
+                $("#message").html("<div class=\"alert alert-info display-4\">Sending E-mail...Please wait</div>");
+                $.get("http://localhost:3000/send", {
+                    to: to
+                    , subject: subject
+                    , text: text
+                }, function (data) {
+                    if (data == "sent") {
+                        console.log("Email is been sent at " + to + ".Please check inbox!");
+                        $("#message").empty().html("<h1 class=\"display-3\">Email has been sent to " + to + ". Please check inbox!</h1>");
+                    }
+                });
+            });
+        });
+    </script>
+    <style>
+        body {
+            background: url('images/bat2.jpg');
+        }
+        
+        #contain {
+            padding: 2rem;
+            margin: auto;
+            width: fit-content;
+            text-align: center;
+        }
+        
+        input.transparent-input,
+        textarea.transparent-input {
+            background-color: transparent!important;
+            border: none;
+            border-bottom: 1px white solid;
+            border-left: 1px white solid;
+            color: white !important;
+            border-radius: 0.4em;
+        }
+        
+        input.transparent-input:hover,
+        textarea.transparent-input:hover {
+            box-shadow: 0px 0px 75px -2px rgba(0, 0, 0, 1);
+            border: none;
+        }
+        
+        .form-control::-webkit-input-placeholder {
+            color: white;
+        }
+        
+        button.sendhover:hover {
+            color: black !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-white">
+        <div id="contain">
+            <h1 class="display-2">BatMailer</h1>
+            <p class="lead">Send mails in the Batman style.</p>
+            <hr style="width:30%; border-bottom:1px solid white;">
+            <div class="mt-5 pt-2">
+                <input id="to" type="email" placeholder="Email of the Recipient.." class="form-control transparent-input">
+                <br>
+                <input id="subject" type="text" placeholder="Subject.." class="form-control transparent-input">
+                <br>
+                <textarea id="content" cols="40" rows="5" placeholder="Message.." class="form-control transparent-input"></textarea>
+                <br>
+                <button id="send_email" class="btn btn-outline-secondary  sendhover">Send Email</button>
+            </div>
+            <div id="message"></div>
+            <div class="mt-5">sending via <strong>aakashrastogiPro@gmail.com</strong></div>
+        </div>
+        <hr style="border-bottom:1px solid white;">
+        <div id="footer" class="pb-3">
+            <div>&copy; Aakash Rastogi @ 2017</div>
+        </div>
+    </div>
+</body>
+
+</html>

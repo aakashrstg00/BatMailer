@@ -1,0 +1,9 @@
+{
+  "name": "email-node",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "latest",
+    "nodemailer": "latest",
+    "nodemon": "^1.11.0"
+  }
+}
