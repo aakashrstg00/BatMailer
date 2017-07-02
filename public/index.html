@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>BatMailer</title>
+    <link rel="icon" href="images/favicon.ico">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
     <script>
         $(document).ready(function () {
-            var from, to, subject, text, sender_mail, sender_pass, sender_name;
+            var from, to, subject, text;
             $("#send_email").click(function () {
                 to = $("#to").val();
                 subject = $("#subject").val();
